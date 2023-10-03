@@ -7,7 +7,7 @@
 Realicemos primero la implementación del algoritmo en Python:
 
 
-```mojo
+```python
 %%python
 def is_valid(board, row, col, num):
     for x in range(9):
@@ -71,7 +71,7 @@ for i in board:
 Y tomemos el tiempo que se tarda en resolver un sudoku de 9x9:
 
 
-```mojo
+```python
 %%python
 from timeit import timeit
 
@@ -89,7 +89,7 @@ board = [
 
 python_secs = timeit(lambda: solve_sudoku(board), number=2)/2
 print("python seconds:", python_secs)
-```
+```python
 
     python seconds: 0.01997621636837721
 
@@ -99,7 +99,7 @@ print("python seconds:", python_secs)
 Ahora realicemos la implementación en Mojo:
 
 
-```mojo
+```python
 from Pointer import DTypePointer
 from DType import DType
 from Buffer import NDBuffer
@@ -206,7 +206,7 @@ board.print_board()
 Y tomemos el tiempo que tarda en resolverlo:
 
 
-```mojo
+```python
 from Benchmark import Benchmark
 alias board_size = 9 
 fn bench(python_secs: Float64):
